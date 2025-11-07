@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>XYZ</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navBar" role="navigation" aria-label="Main Navigation">
+            <div class="LogoNTitle">
+               <div class="Title">XYZ Company</div>
+            </div>
+
+            <div class="RightControls">
+                <div class="Navigation" id="mainNav" aria-hidden="false">
+                    <a href="#" class="nav-item About">About</a>
+                    <a href="#" class="nav-item Contact">Contact</a>
+
+                    <!-- Desktop-only signup (now an image) -->
+                    <a href="#" class="nav-item Profile ProfileDesktop" aria-label="Sign in to a profile">
+                        <img src="./Media/add-userDetail.png" alt="Signup" class="ProfileLogo profile-img">
+                    </a>
+
+                    <!-- Resources -->
+                    <div class="Resources" id="resourcesBtn" aria-haspopup="true">
+                        <button id="resourcesToggle" class="resources-toggle" aria-expanded="false" aria-label="Open the additional resources menu" aria-controls="resourcesDropdown">
+                            Resources ▾
+                        </button>
+                        <div id="resourcesDropdown" class="resources-dropdown" role="menu" aria-hidden="true">
+                            <a href="#" class="dropdown-item" aria-label="Documentation">Documentation</a>
+                            <a href="#" class="dropdown-item" aria-label="Security Policy">Security Policy</a>
+                            <a href="#" class="dropdown-item" aria-label="Legal">Legal</a>
+                            <a href="#" class="dropdown-item" aria-label="Endpoints">Endpoints</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile-only signup which appears to the left of the hamburger on small screens -->
+                <a href="#" class="nav-item Profile ProfileMobile" id="signupMobile" aria-label="Sign in to a profile">
+                    <img src="./Media/add-userDetail.png" alt="Signup" class="ProfileLogo profile-img">
+                </a>
+
+                <button class="MobileMenu" id="mobileToggle" aria-controls="mainNav" aria-expanded="false" aria-label="Open the menu">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="HeroSection">
+        </section>
+    </main>
+
+    <!-- load navigation logic from external file -->
+    <script src="./main.js" defer></script>
+</body>
+</html>

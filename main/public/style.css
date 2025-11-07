@@ -1,0 +1,186 @@
+/* Reset */
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+/* Nav bar */
+.navBar{
+    background-color: cadetblue;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 16px;
+    gap:12px;
+    position:relative;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Logo / Title */
+.LogoNTitle .Title{
+    font-weight:700;
+    color: #fff;
+    font-size:1.05rem;
+}
+
+/* Right controls */
+.RightControls{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* Navigation (desktop) */
+.Navigation{
+    display:flex;
+    gap:14px;
+    align-items:center;
+}
+
+/* Generic nav item styling */
+.nav-item{
+    color: #fff;
+    text-decoration:none;
+    padding:6px 10px;
+    border-radius:4px;
+    background:transparent;
+    cursor:pointer;
+    font-size:0.95rem;
+}
+
+/* hover/focus */
+.nav-item:hover, .nav-item:focus{
+    background: rgba(255,255,255,0.08);
+    outline: none;
+}
+
+/* Resources */
+.Resources{ position:relative; }
+
+.resources-toggle{
+    background:none;
+    border:0;
+    color:#fff;
+    cursor:pointer;
+    font:inherit;
+    padding:6px 10px;
+}
+
+/* Desktop dropdown panel */
+.resources-dropdown{
+    display:none;
+    position:absolute;
+    top:calc(100% + 6px);
+    right:0;
+    background:#fff;
+    color:#111;
+    min-width:180px;
+    border-radius:6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    overflow:hidden;
+    z-index:1000;
+}
+
+.resources-dropdown.open{
+    display:block;
+}
+
+.resources-dropdown .dropdown-item{
+    display:block;
+    padding:10px 12px;
+    text-decoration:none;
+    color:#111;
+    font-size:0.95rem;
+}
+
+.resources-dropdown .dropdown-item:hover{
+    background:#f5f5f5;
+}
+
+/* Mobile menu toggle */
+.MobileMenu{
+    display:none;
+    background:transparent;
+    border:0;
+    color:#fff;
+    font-size:1.2rem;
+    cursor:pointer;
+    padding:6px 10px;
+}
+
+/* Profile visibility controls */
+.ProfileMobile { display:none; }   /* hidden on desktop */
+.ProfileDesktop { display:inline-block; } /* visible on desktop */
+
+/* Responsive behavior */
+@media (max-width:700px){
+    .MobileMenu{ display:block; }
+    .Navigation{
+        position:absolute;
+        left:0;
+        right:0;
+        top:56px;
+        background:#fff;
+        flex-direction:column;
+        gap:0;
+        padding:8px 10px;
+        display:none;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .Navigation.open{ display:flex; }
+    .nav-item{
+        color:#111;
+        padding:12px 10px;
+        border-radius:0;
+    }
+
+    /* Make resources toggle visible and match mobile nav items */
+    .resources-toggle{
+        color:#111;               /* dark on white background */
+        display:block;
+        width:100%;
+        text-align:left;
+        padding:12px 10px;
+        background:transparent;
+        border:0;
+        font:inherit;
+        cursor:pointer;
+    }
+
+    /* Inline dropdown inside mobile nav */
+    .Resources{ position:static; }
+    .resources-dropdown{
+        position:static;
+        top:auto;
+        right:auto;
+        background:#fff;
+        box-shadow:none;
+        min-width:0;
+        display:none;
+        width:100%;
+        padding:6px 0;
+    }
+    .resources-dropdown.open{ display:block; }
+    .resources-dropdown .dropdown-item{
+        color:#111;
+        padding:14px 12px;
+        background:#fff;
+        border-bottom:1px solid #eee;
+    }
+
+    /* Swap signup visibility: show mobile signup and hide desktop signup */
+    .ProfileDesktop { display:none; }
+    .ProfileMobile {
+        display:inline-block;
+        color:#fff;
+        text-decoration:none;
+        padding:6px 10px;
+        border-radius:4px;
+    }
+
+    /* Ensure RightControls items stay aligned on small screens */
+    .RightControls{ gap:6px; align-items:center; }
+}
+
+.ProfileLogo{
+    width:20px;
+    height:20px;
+}
