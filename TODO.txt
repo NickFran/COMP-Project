@@ -1,3 +1,4 @@
 make bottom card text in register and login pages vw responsive
 properly vertical align nav items in mobile + standard mode
 finish converting non var modulated font sizes to their var equivalent
+Add log out button somewhere

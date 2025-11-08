@@ -4,23 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>XYZ</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="../public/style.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navBar" role="navigation" aria-label="Main Navigation">
             <div class="LogoNTitle">
-                <a href="./index.html" class="Title">XYZ Company</a>
+                <a href="../public/index.html" class="Title">XYZ Company</a>
             </div>
 
             <div class="RightControls">
                 <div class="Navigation" id="mainNav" aria-hidden="false">
-                    <a href="./about.html" class="nav-item About" aria-label="About">About</a>
-                    <a href="./contact.html" class="nav-item Contact" aria-label="Contact">Contact</a>
+                    <a href="../public/about.html" class="nav-item About" aria-label="About">About</a>
+                    <a href="../public/contact.html" class="nav-item Contact" aria-label="Contact">Contact</a>
 
                     <!-- Desktop-only signup (now an image) -->
-                    <a href="./login.html" class="nav-item Profile ProfileDesktop" aria-label="Log In">
-                        <img src="./Media/add-userDetail.png" alt="Signup" class="ProfileLogo profile-img">
+                    <a href="../public/login.html" class="nav-item Profile ProfileDesktop" aria-label="Log In">
+                        <img src="../public/Media/add-userDetail.png" alt="Signup" class="ProfileLogo profile-img">
                     </a>
 
                     <!-- Resources -->
@@ -38,8 +38,8 @@
                 </div>
 
                 <!-- Mobile-only signup which appears to the left of the hamburger on small screens -->
-                <a href="./login.html" class="nav-item Profile ProfileMobile" id="signupMobile" aria-label="log in">
-                    <img src="./Media/add-userDetail.png" alt="Signup" class="ProfileLogo profile-img">
+                <a href="../public/login.html" class="nav-item Profile ProfileMobile" id="signupMobile" aria-label="log in">
+                    <img src="../public/Media/add-userDetail.png" alt="Signup" class="ProfileLogo profile-img">
                 </a>
 
                 <button class="MobileMenu" id="mobileToggle" aria-controls="mainNav" aria-expanded="false" aria-label="Open the menu">☰</button>
@@ -48,11 +48,21 @@
     </header>
 
     <main>
-        <section class="HeroSection">
+        <section>
+            <div class="card">
+                <h2>API Endpoints</h2>
+                <div class="spacer1"></div>
+                <div class="area">
+                    <a href="#">Get All User Data</a>
+                    <a href="#">Get Last Server Bootup Timestamp</a>
+                    <a href="#">Get Server Information</a>
+                    <a href="#">Get All Logged In Users</a>
+                </div>
+
         </section>
     </main>
 
     <!-- load navigation logic from external file -->
-    <script src="./main.js" defer></script>
+    <script src="../public/main.js" defer></script>
 </body>
 </html>

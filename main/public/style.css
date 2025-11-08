@@ -1,4 +1,9 @@
-
+*{
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 :root{
     --minFontSize1: 12px;
@@ -22,9 +27,14 @@
 
     margin-left: auto;
     margin-right: auto;
+}.leftalign{
+    text-align: left;
 }
 
-
+.spacer0 {
+    width: 100%;
+    height: 2em;
+}
 .spacer1 {
     width: 100%;
     height: 5em;
@@ -66,6 +76,31 @@
     min-width: 300px;
 }
 
+.bottomspace0{
+    margin-bottom: 1em;
+}
+.bottomspace1{
+    margin-bottom: 2em;
+}
+.bottomspace2{
+    margin-bottom: 3em;
+}
+.leftspace0{
+    margin-left: 1em;
+}
+.leftspace1{
+    margin-left: 2em;
+}
+.leftspace2{
+    margin-left: 3em;
+}
+
+.spanspan{
+    font-weight: bold;
+    color: rgb(3, 42, 44);
+    text-decoration: underline;
+}
+
 
 .underline {
     text-decoration: underline;
@@ -102,7 +137,15 @@
 }
 
 
-
+.area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}.area a{
+    padding: 2%;
+}
 
 
 /* Reset */
@@ -125,6 +168,7 @@
     font-weight:700;
     color: #fff;
     font-size: calc(16px + 0.2vw);
+    text-decoration: none;
 }
 
 /* Right controls */

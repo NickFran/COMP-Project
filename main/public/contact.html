@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Register</title>
+    <title>XYZ</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
@@ -48,30 +48,39 @@
     </header>
 
     <main>
-        <section class="HeroSection">
+        <section>
+            <div class="card center">
+                    <h2 class="heading center underborder bottomspace0">Find Us On The Map</h2>
+                    <p>We are located at: 400 East Ave, Warwick, RI 02886</p>
+                    <p class="bottomspace2">We are open from <span class="spanspan">8 AM.</span> to <span class="spanspan">11 PM</span></p>
+                    <iframe class="bottomspace1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2772.8190376615694!2d-71.48335162434111!3d41.71282177574678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e44b8a4781c1b5%3A0x166f2dda0929f016!2sKnight%20Campus%20-%20Community%20College%20of%20Rhode%20Island%20(CCRI)!5e1!3m2!1sen!2sus!4v1762533288231!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
             <div class="spacer1"></div>
-            <article>
-                <div class="heading center underborder width2">Register</div>
-                <div class="card center wide1">
-                    <form action="/action_page.php" class="registration-form" novalidate>
-                        <div class="form-row">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required aria-required="true">
-                        </div>
 
-                        <div class="form-row">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" id="password" name="password" class="form-input" placeholder="At least 12 characters" required aria-required="true">
-                        </div>
+            <div class="card center wide1">
+                <h2>Contact Us</h2>
+                <p class="bottomspace0">If you have any questions, feel free to reach out to us!</p>
+                <form action="/submit_contact" method="post" class="contact-form" novalidate>
+                    <div class="form-row">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required aria-required="true">
+                    </div>
+                    <div class="form-row">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Your Email" required aria-required="true">
+                    </div>
+                    <div class="form-row">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-input" placeholder="Your Message" required aria-required="true"></textarea>
+                    </div>
+                    <div class="bottomspace0"></div>
+                    <button type="submit" class="form-submit btn primary">Submit</button>
+                </form>
+            </div>
 
-                        <div class="form-actions">
-                            <button type="submit" class="btn primary">Create account</button>
-                        </div>
-                        
-                    </form>
-                    <div>Already have an account? <a href="login.html">Log in</a></div>
-                </div>
-            </article>
+            <div class="spacer1"></div>
+
         </section>
     </main>
 

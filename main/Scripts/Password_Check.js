@@ -18,7 +18,7 @@ function checkPasswordStrength(password) {
         "lowercase": /[a-z]/.test(password),
         "number": /[0-9]/.test(password),
         // Note: In a JS regex literal, the backslash \ and forward slash / must be escaped
-        "special_char": /[!@#$%^&*()_+=-{};':"\\|,.<>\/?]/.test(password)
+        "special_char": /[!@#$&_?]/.test(password)
     };
 
     // console.log is the JavaScript equivalent of print
