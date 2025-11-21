@@ -54,14 +54,35 @@
                 <div class="heading center underborder width2">Register</div>
                 <div class="card center wide1">
                     <form action="/action_page.php" class="registration-form" novalidate>
+                        
+                        <!-- FIRST NAME -->
+                        <div class="form-row">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" placeholder="John" required aria-required="true">
+                        </div>     
+                        
+                        <!-- LAST NAME -->
+                        <div class="form-row">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required aria-required="true">
+                        </div>    
+                        
+                        <!-- EMAIL -->
                         <div class="form-row">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required aria-required="true">
                         </div>
 
+                        <!-- PASSWORD -->
                         <div class="form-row">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" id="password" name="password" class="form-input" placeholder="At least 12 characters" required aria-required="true">
+                        </div>
+
+                        <!-- CONFIRM PASSWORD -->
+                        <div class="form-row">
+                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" class="form-input" placeholder="Re-enter your password" required aria-required="true">
                         </div>
 
                         <div class="form-actions">
@@ -73,9 +94,26 @@
                 </div>
             </article>
         </section>
+
+        <script>
+          // JS
+          function handleSubmit(e) {
+            e.preventDefault();                // stop normal submit
+            const form = e.target;             // the form element
+            const data = new FormData(form);
+            // do whatever (AJAX, validation...)
+            console.log(Object.fromEntries(data));
+          }
+
+          document.getElementById('registration-form')
+            .addEventListener('submit', handleSubmit);
+        </script>
     </main>
 
     <!-- load navigation logic from external file -->
     <script src="./main.js" defer></script>
+    <script defer>
+        alert("test");
+    </script>
 </body>
 </html>

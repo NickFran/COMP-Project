@@ -7,13 +7,51 @@ const db = new sqlite3.Database('./test.db', sqlite3.OPEN_READWRITE, (err) => {
     }
 });
 
-sql = 'CREATE TABLE users(id INTEGER PRIMARY KEY,first_name,last_name,password,email)';
-// db.run(sql);
+sql = 'CREATE TABLE users(id INTEGER PRIMARY KEY,first_name,last_name,email,password,access_level DEFAULT 1)';
+//db.run(sql);
 
 
-sql = 'INSERT INTO users(first_name,last_name,password,email) VALUES(?,?,?,?)';
-db.run(sql, ["John", "Doe", "password123", "john.doe@example.com"], (err) => {
+sql = 'INSERT INTO users(first_name,last_name,email,password,access_level) VALUES(?,?,?,?,?)';
+// db.run(sql, ["John", "Doe", "john.doe@example.com", "Password1234","1"], (err) => {
+//     if (err) {
+//         return console.error(err.message);
+//     }
+// });
+
+sql = 'SELECT * FROM users'; // Do THIS NEXT
+db.all(sql, [], (err, rows) => {
     if (err) {
-        return console.error(err.message);
+        throw err;
     }
+    console.log(rows);
+    console.log(rows[0]["first_name"]);
 });
+
+function closeDB() {
+    db.close((err) => {
+        if (err) {
+            return console.error(err.message);
+        }
+    });
+}
+
+function runSQL(statement, params = []) {
+    db.run(statement, params, function(err) {
+        if (err) {
+            return console.error(err.message);
+        }
+        return this.lastID;
+    });
+}
+
+function getAllCommands(statement, params = [], callback) {
+    db.all(statement, params, (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        callback(rows);
+    });
+}
+
+console.log(allSQL)
+console.log(allSQL)
