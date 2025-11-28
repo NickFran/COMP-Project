@@ -3,3 +3,11 @@ properly vertical align nav items in mobile + standard mode
 finish converting non var modulated font sizes to their var equivalent
 Add log out button somewhere
 Pages that past one page length have the scroll bar on the entire side of the screen, need to fix it.
+Change private folder to internal
+and private folder to restricted
+(add a confidential folder and put the endpoints in it)
+    design it to this, 
+    Public: Approved for release​
+    Internal: Limited to employees​
+    Confidential: Sensitive company information​
+    Restricted: Personally Identifiable or Financial Data (GLBA & PCI-DSS protected)

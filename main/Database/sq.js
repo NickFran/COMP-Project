@@ -12,20 +12,25 @@ sql = 'CREATE TABLE users(id INTEGER PRIMARY KEY,first_name,last_name,email,pass
 
 
 sql = 'INSERT INTO users(first_name,last_name,email,password,access_level) VALUES(?,?,?,?,?)';
-// db.run(sql, ["John", "Doe", "john.doe@example.com", "Password1234","1"], (err) => {
+// db.run(sql, ["John", "Smith", "JS@gmail.com", "jsjsjsjs_1234","2"], (err) => {
 //     if (err) {
 //         return console.error(err.message);
 //     }
 // });
 
 sql = 'SELECT * FROM users'; // Do THIS NEXT
-db.all(sql, [], (err, rows) => {
-    if (err) {
-        throw err;
-    }
-    console.log(rows);
-    console.log(rows[0]["first_name"]);
-});
+
+function getDB() {
+    return new Promise((resolve, reject) => {
+        db.all(sql, [], (err, rows) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(rows);
+        });
+    });
+}
+getDB().then((rows) => console.log(rows)).catch((err) => console.error(err));
 
 function closeDB() {
     db.close((err) => {
@@ -53,5 +58,4 @@ function getAllCommands(statement, params = [], callback) {
     });
 }
 
-console.log(allSQL)
-console.log(allSQL)
+
