@@ -53,7 +53,7 @@
             <article>
                 <div class="heading center underborder width2">Register</div>
                 <div class="card center wide1">
-                    <form action="/action_page.php" class="registration-form" novalidate>
+                    <form id="registration-form" class="registration-form" novalidate>
                         
                         <!-- FIRST NAME -->
                         <div class="form-row">
@@ -95,19 +95,74 @@
             </article>
         </section>
 
-        <script>
-          // JS
-          function handleSubmit(e) {
-            e.preventDefault();                // stop normal submit
-            const form = e.target;             // the form element
-            const data = new FormData(form);
-            // do whatever (AJAX, validation...)
-            console.log(Object.fromEntries(data));
-          }
+                <script>
+                    // Client-side registration handler: validates locally, checks email with server,
+                    // then posts registration to the server. The server endpoints are expected at
+                    // POST /api/check-email and POST /api/register.
+                    async function handleSubmit(e) {
+                        e.preventDefault();
+                        const form = e.target;
+                        const data = Object.fromEntries(new FormData(form));
+                        const email = (data.email || '').trim();
+                        const password = data.password || '';
+                        const confirm = data['confirm-password'] || '';
 
-          document.getElementById('registration-form')
-            .addEventListener('submit', handleSubmit);
-        </script>
+                        // basic client-side checks
+                        if (!email) return alert('Please enter an email');
+                        if (password.length < 8) return alert('Password must be at least 8 characters');
+                        if (password !== confirm) return alert('Passwords do not match');
+
+                        try {
+                            // Build absolute URLs so browser requests go to the same origin the page was loaded from
+                            const base = window.location.origin;
+
+                            // Check if email already exists
+                            const checkRes = await fetch(base + '/api/check-email', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ email })
+                            });
+                            const checkJson = await checkRes.json().catch(() => null);
+                            console.log('check-email response', checkRes.status, checkJson);
+                            if (!checkRes.ok) {
+                                throw new Error((checkJson && checkJson.error) || `check-email failed: ${checkRes.status}`);
+                            }
+                            if (checkJson.exists) return alert('Email already registered');
+
+                            // register the user
+                            const regRes = await fetch(base + '/api/register', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    firstName: data.firstName,
+                                    lastName: data.lastName,
+                                    email,
+                                    password
+                                })
+                            });
+                            const regJson = await regRes.json().catch(() => null);
+                            console.log('register response', regRes.status, regJson);
+                            if (!regRes.ok) {
+                                // If server returned policy reasons, show them clearly
+                                if (regJson && Array.isArray(regJson.reasons) && regJson.reasons.length > 0) {
+                                    throw new Error('Password requirements:\n' + regJson.reasons.join('\n'));
+                                }
+                                throw new Error((regJson && regJson.error) || `register failed: ${regRes.status}`);
+                            }
+
+                            alert('Account created. Please log in.');
+                            window.location.href = '/login.html';
+                        } catch (err) {
+                                        console.error('Registration error', err);
+                                        // Show the server-provided message (this includes detailed policy reasons when present).
+                                        // Avoid adding the network/console hint so the user sees the actual failure reasons.
+                                        alert(err.message || 'Registration error. See console for details.');
+                                    }
+                    }
+
+                    document.getElementById('registration-form')
+                        .addEventListener('submit', handleSubmit);
+                </script>
     </main>
 
     <!-- load navigation logic from external file -->

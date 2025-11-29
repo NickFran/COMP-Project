@@ -53,7 +53,7 @@
             <article>
                 <div class="heading center underborder width2">Log In</div>
                 <div class="card center wide1">
-                    <form action="/action_page.php" class="registration-form" novalidate>
+                    <form id="login-form" class="registration-form" novalidate>
                         <div class="form-row">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required aria-required="true">
@@ -75,7 +75,39 @@
         </section>
     </main>
 
-    <!-- load navigation logic from external file -->
-    <script src="./main.js" defer></script>
+                <!-- login client script -->
+        <script>
+            async function handleLogin(e) {
+                e.preventDefault();
+                const data = Object.fromEntries(new FormData(e.target));
+                const email = (data.email || '').trim();
+                const password = data.password || '';
+                if (!email || !password) return alert('Enter email and password');
+                try {
+                    const base = window.location.origin;
+                    const res = await fetch(base + '/api/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, password })
+                    });
+                    const body = await res.json().catch(() => null);
+                    console.log('login response', res.status, body);
+                    if (!res.ok) throw new Error((body && body.error) || 'Login failed');
+                    // success — redirect or show message
+                    alert('Login successful');
+                    window.location.href = '/index.html';
+                } catch (err) {
+                    console.error('Login error', err);
+                    alert('Error: ' + err.message + '\nSee console for details');
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const f = document.getElementById('login-form');
+                if (f) f.addEventListener('submit', handleLogin);
+            });
+        </script>
+        <!-- load navigation logic from external file -->
+        <script src="./main.js" defer></script>
 </body>
 </html>
