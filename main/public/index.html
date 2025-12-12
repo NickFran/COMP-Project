@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>XYZ</title>
+    <title>XYZ Financial</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header>
         <nav class="navBar" role="navigation" aria-label="Main Navigation">
             <div class="LogoNTitle">
-                <a href="./index.html" class="Title">XYZ Company</a>
+                <a href="./index.html" class="Title" aria-label="Home - XYZ Financial">XYZ Company</a>
             </div>
 
             <div class="RightControls">
@@ -47,9 +48,123 @@
         </nav>
     </header>
 
-    <main>
-        <section class="HeroSection">
+    <main id="main-content" role="main">
+        <section class="HeroSection" aria-labelledby="hero-heading">
+            <div class="spacer1"></div>
+            <div class="card center wide4" style="max-width:1100px;">
+                <div class="area" style="gap:12px; padding:18px;">
+                    <!-- Responsive logo -->
+                    <img src="./Media/CompanyLogo.png" alt="XYZ Financial Logo" class="hero-logo" style="max-width:360px; width:40vw; height:auto;">
+
+                    <h1 id="hero-heading" class="heading">Financial management, simplified</h1>
+                    <p style="color:#163244; font-size:calc(var(--minFontSize4) + 0.2vw); max-width:900px;">
+                        XYZ Company helps individuals and organisations steward capital with confidence. We combine clear reporting,
+                        secure custody, and personalised advisory to help you reach long-term financial goals.
+                    </p>
+
+                    <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:6px;">
+                        <a href="./register.html" class="btn primary wide1" aria-label="Create account - Signup">Signup</a>
+                        <a href="./login.html" class="btn wide1" style="background:#f0f4f5; color:#163244;" aria-label="Sign in - Client login">Log In</a>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer1"></div>
         </section>
+
+        <!-- Who we are -->
+        <section class="AboutSection card center wide4" aria-labelledby="who-we-are">
+            <div class="area" style="gap:16px; padding:26px;">
+                <h2 id="who-we-are" class="heading">Who we are</h2>
+                <p style="color:#163244; font-size:calc(var(--minFontSize4) + 0.1vw); max-width:900px;">
+                    XYZ Company is an independent financial services firm delivering investment management, treasury services, and advisory support to individuals and organisations.
+                    Our team blends institutional investment experience with modern technology to deliver straightforward client outcomes.
+                </p>
+                <p style="color:#163244; font-size:calc(var(--minFontSize3) + 0.1vw); max-width:900px;">
+                    We prioritise transparency, long-term thinking, and security so clients can plan with confidence.
+                </p>
+            </div>
+        </section>
+
+        <!-- Why choose us -->
+        <section class="WhySection center" aria-labelledby="why-choose-us">
+            <div class="card wide4" style="padding:22px;">
+                <div class="area" style="gap:18px;">
+                    <h2 id="why-choose-us" class="heading">Why choose XYZ</h2>
+                    <p style="color:#163244; max-width:900px;">
+                        We combine disciplined investment processes, secure systems, and trusted advice. A few reasons clients work with us:
+                    </p>
+
+                    <div class="features-grid" role="list">
+                        <div class="feature-card" role="listitem" aria-labelledby="feature-secure">
+                            <div class="feature-icon" aria-hidden="true">🏦</div>
+                            <h3 id="feature-secure" class="feature-title">Regulated & Secure</h3>
+                            <p class="feature-desc">Custody-grade controls, compliance-first processes, and strong data protections.</p>
+                        </div>
+
+                        <div class="feature-card" role="listitem" aria-labelledby="feature-performance">
+                            <div class="feature-icon" aria-hidden="true">📈</div>
+                            <h3 id="feature-performance" class="feature-title">Proven Performance</h3>
+                            <p class="feature-desc">Disciplined portfolio construction and active management focused on long-term results.</p>
+                        </div>
+
+                        <div class="feature-card" role="listitem" aria-labelledby="feature-advice">
+                            <div class="feature-icon" aria-hidden="true">🤝</div>
+                            <h3 id="feature-advice" class="feature-title">Personalised Advice</h3>
+                            <p class="feature-desc">Dedicated advisors who understand your goals and coordinate tailored solutions.</p>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; gap:12px; justify-content:center; width:100%;">
+                        
+                        <a href="./register.html" class="btn" aria-label="Get started - Create account">Get started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="spacer1"></div>
+
+        <section class="AboutSection card center wide4" aria-labelledby="have-a-question">
+            <h2 id="have-a-question" class="heading">Have a question?</h2>
+            <div class="bottomspace1 wide3">
+                <a href="./contact.html" class="btn primary">Contact us</a>
+            </div>
+        </section>
+
+        <div class="spacer1"></div>
+
+        <!-- Footer -->
+        <footer class="site-footer" role="contentinfo">
+            <div class="wide4 center" style="padding:18px;">
+                <div class="area" style="gap:12px; align-items:stretch; text-align:left;">
+                    <div class="footer-grid" style="display:flex; gap:18px; flex-wrap:wrap; justify-content:space-between;">
+                        <div class="footer-col" style="min-width:160px;">
+                            <strong>Company</strong>
+                            <div><a href="./about.html" class="nav-item" aria-label="About Acumen Financial">About</a></div>
+                            <div><a href="./contact.html" class="nav-item" aria-label="Contact Acumen Financial">Contact</a></div>
+                            <div><a href="./legal.html" class="nav-item" aria-label="Legal information">Legal</a></div>
+                        </div>
+
+                        <div class="footer-col" style="min-width:160px;">
+                            <strong>Products</strong>
+                            <div><a href="./register.html" class="nav-item" aria-label="Accounts - Register">Accounts</a></div>
+                            <div><a href="./login.html" class="nav-item" aria-label="Client login">Client login</a></div>
+                        </div>
+
+                        <div class="footer-col" style="min-width:160px;">
+                            <strong>Resources</strong>
+                            <div><a href="../private/doc.html" class="nav-item" aria-label="Documentation">Docs</a></div>
+                            <div><a href="../restricted/endpoints.html" class="nav-item" aria-label="API endpoints">API</a></div>
+                        </div>
+                    </div>
+
+                    <div class="footer-note" style="margin-top:12px; color:#556; font-size:calc(var(--minFontSize2) + 0.1vw);">
+                        This website includes content created with assistance from AI to speed development. If you have questions about the content, please contact us.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </main>
 
     <!-- load navigation logic from external file -->
