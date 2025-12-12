@@ -14,7 +14,7 @@ function checkPasswordStrength(password) {
   results.uppercase = /[A-Z]/.test(password);
   results.lowercase = /[a-z]/.test(password);
   results.number = /[0-9]/.test(password);
-  results.special = /[!@#\$%\^&\*\-_=+\[\]{};:'"\\|,.<>\/?`~?_]/.test(password);
+  results.special = /[!@#$&_?]/.test(password);
 
   if (!results.length) reasons.push('At least 12 characters');
   if (!results.uppercase) reasons.push('At least one uppercase letter');

@@ -2,8 +2,13 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 let sql;
 
-// Use a path relative to this module so requiring from elsewhere works
-const dbPath = path.join(__dirname, 'test.db');
+// DB path resolution:
+// - Use an explicit environment variable `DB_PATH` if provided (recommended for deployments)
+// - Otherwise default to a `confidential/test.db` file located one level above this folder
+//   (project layout: main/Database and main/confidential)
+const defaultDbPath = path.join(__dirname, '..', 'restricted', 'test.db');
+const dbPath = process.env.DB_PATH || defaultDbPath;
+
 const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
     if (err) {
         return console.error(err.message);
@@ -33,7 +38,7 @@ function getDB() {
         });
     });
 }
-getDB().then((rows) => console.log(rows)).catch((err) => console.error(err));
+// getDB().then((rows) => console.log(rows)).catch((err) => console.error(err));
 
 function closeDB() {
     db.close((err) => {
